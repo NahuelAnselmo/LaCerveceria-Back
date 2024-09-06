@@ -1,0 +1,40 @@
+{
+  "name": "elixir-and-bites-back",
+  "version": "1.0.0",
+  "description": "Backend",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --platform=node --outfile=dist/index.cjs --minify",
+    "start": "node --env-file=.env dist/index.cjs",
+    "dev": "node --watch --env-file=.env src/index.js",
+    "lint": "eslint . --fix"
+  },
+  "keywords": [
+    "1234"
+  ],
+  "author": "Nahuel Anselmo",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.20.2",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "env-var": "^7.4.1",
+    "envs": "^0.1.6",
+    "express": "^4.19.2",
+    "http-status-codes": "^2.3.0",
+    "joi": "^17.12.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1",
+    "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  }
+}
