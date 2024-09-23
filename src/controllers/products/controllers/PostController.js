@@ -10,6 +10,7 @@ export class PostController {
       name: body.name,
       imageUrl: body.imageUrl,
       price: body.price,
+      stock: body.stock,
       description: body.description,
       available: body.available,
       category: body.category,
