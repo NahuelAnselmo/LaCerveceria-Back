@@ -14,7 +14,9 @@ export class GetController {
           name: product._doc.name,
           imageUrl: product._doc.imageUrl,
           price: product._doc.price,
-
+          description: product._doc.description,
+          available: product._doc.available,
+          category: product._doc.category,
         };
       });
 
