@@ -4,6 +4,7 @@ import cors from 'cors';
 import './database/database.js';
 import { mainRouter } from './routes/mainRouter.js';
 
+
 console.clear();
 console.log('👌 Inicializando servidor');
 
@@ -14,7 +15,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
+
 app.use('/api/v1', mainRouter);
+
 
 app.listen(PORT, () => {
   console.log(`👌 Servidor iniciado en el puerto ${PORT}`);
