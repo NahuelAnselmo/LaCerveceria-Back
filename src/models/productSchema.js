@@ -26,6 +26,11 @@ const Product = new mongoose.Schema({
     required: true,
     enum: ['entrantes', 'burgers', 'tragos', 'bebidas', 'cervezas'],
   },
+  stock: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
   isActive: {
     type: Boolean,
     default: true,

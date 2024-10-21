@@ -17,6 +17,7 @@ export class GetController {
           description: product._doc.description,
           available: product._doc.available,
           category: product._doc.category,
+          stock: product._doc.stock,
         };
       });
 
