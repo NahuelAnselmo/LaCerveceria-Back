@@ -34,6 +34,10 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  comment: {  // Nuevo campo para el comentario
+    type: String,
+    required: false, // Puedes hacerlo requerido si es necesario
+  },
   status: {
     type: String,
     enum: ['pending', 'completed', 'canceled'],
