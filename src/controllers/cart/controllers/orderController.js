@@ -1,4 +1,6 @@
 import Order from '../../../models/orderSchema.js';
+import Product from '../../../models/productSchema.js';
+
 
 // Obtener todos los pedidos
 export const getOrders = async (req, res) => {
@@ -27,7 +29,17 @@ export const createOrder = async (req, res) => {
     });
 
     await newOrder.save();
-    res.status(201).json(newOrder);
+
+    // Actualiza el stock de cada producto
+    for (const item of items) {
+      await Product.findByIdAndUpdate(
+        item.productId,
+        { $inc: { stock: -item.quantity } }, // Resta la cantidad del stock
+        { new: true } // Devuelve el documento actualizado
+      );
+    }
+
+    res.status(201).json({ message: 'Pedido creado y stock actualizado', order: newOrder });
   } catch (error) {
     res.status(500).json({ message: 'Error al crear el pedido', error });
   }
