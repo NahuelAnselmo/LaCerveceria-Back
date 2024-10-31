@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
 import express from 'express';
 import { Auth } from '../../controllers/auth/index.js';
+import { isAdmin } from '../../middlewares/isAdmin.js';
 import { validateBody } from '../../middlewares/validateBody.js';
+import { isAuthenticated } from '../../middlewares/isAuthenticated.js'; // Middleware de autenticación
 import { post_loginValidationSchema } from '../../helpers/validationSchemas/authValidationSchema.js';
 import { post_userValidationSchema } from '../../helpers/validationSchemas/usersValidationSchema.js';
 
@@ -21,9 +23,23 @@ authRouter.post(
   Auth.PostController.register,
 );
 
-// Ruta para cambiar la contraseña (mejor usar PUT)
+// Ruta protegida para cambiar la contraseña, con autenticación y validación
 authRouter.put(
   '/change-password',
+  isAuthenticated, // Asegura que el usuario esté autenticado
   validateBody(post_loginValidationSchema), // Cambia por el esquema adecuado si es diferente
   Auth.PostController.changePassword,
+);
+
+
+// Ruta protegida solo para administradores
+authRouter.post(
+  '/admin-only-action',
+  isAuthenticated, // Verifica que el usuario esté autenticado
+  isAdmin, // Verifica que el usuario sea un administrador
+  (req, res) => {
+    res.status(200).json({
+      message: 'Esta es una ruta protegida solo para administradores.',
+    });
+  }
 );

@@ -4,6 +4,11 @@ import HttpCodes from 'http-status-codes';
 export const validateBody = (validationSchema) => (req, res, next) => {
   const { body } = req;
 
+  // Si el usuario es administrador y está autenticado, saltar la validación del cuerpo
+  if (req.user && req.user.isAdmin) {
+    return next();
+  }
+
   if (!validationSchema) {
     return res.status(HttpCodes.INTERNAL_SERVER_ERROR).json({
       data: null,
