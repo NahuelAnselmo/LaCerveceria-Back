@@ -1,17 +1,18 @@
+/* eslint-disable prettier/prettier */
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
-const User = new mongoose.Schema({
-  name: {
+const userSchema = new mongoose.Schema({
+  username: {
     type: String,
     required: true,
-  },
-  dni: {
-    type: Number,
-    required: true,
+    trim: true,
   },
   email: {
     type: String,
     required: true,
+    unique: true,
+    trim: true,
   },
   password: {
     type: String,
@@ -21,10 +22,23 @@ const User = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  isActive: {
-    type: Boolean,
-    default: true,
-  },
 });
 
-export default mongoose.model('Users', User);
+// Middleware para encriptar la contraseña antes de guardar el usuario
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
+    return next();
+  }
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    return next(error);
+  }
+});
+
+const UserModel = mongoose.model('User', userSchema);
+export default UserModel;
+

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -13,7 +14,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 
 
 app.use('/api/v1', mainRouter);

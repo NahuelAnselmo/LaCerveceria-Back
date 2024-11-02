@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import express from 'express';
 
 import { contactRouter } from './routers/contactRouters.js';
