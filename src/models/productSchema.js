@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Product = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -10,7 +10,7 @@ const Product = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: String,
+    type: Number, // Cambiado a Number para representar valores monetarios
     required: true,
   },
   description: {
@@ -35,6 +35,6 @@ const Product = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-});
+}, { timestamps: true }); // Agrega timestamps automáticos
 
-export default mongoose.model('Products', Product);
+export default mongoose.model('Product', ProductSchema); // Nombre en singular
