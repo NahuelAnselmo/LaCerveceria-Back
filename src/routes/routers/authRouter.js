@@ -6,6 +6,7 @@ import { validateBody } from '../../middlewares/validateBody.js';
 import { isAuthenticated } from '../../middlewares/isAuthenticated.js'; // Middleware de autenticación
 import { post_loginValidationSchema } from '../../helpers/validationSchemas/authValidationSchema.js';
 import { post_userValidationSchema } from '../../helpers/validationSchemas/usersValidationSchema.js';
+import { edit_userValidationSchema } from '../../helpers/validationSchemas/editUserValidationSchema.js';
 
 export const authRouter = express.Router();
 
@@ -23,14 +24,13 @@ authRouter.post(
   Auth.PostController.register,
 );
 
-// Ruta protegida para cambiar la contraseña, con autenticación y validación
+// Ruta para editar usuario (protegida)
 authRouter.put(
-  '/change-password',
+  '/edit/:id',
   isAuthenticated, // Asegura que el usuario esté autenticado
-  validateBody(post_loginValidationSchema), // Cambia por el esquema adecuado si es diferente
-  Auth.PostController.changePassword,
+  validateBody(edit_userValidationSchema), // Valida los campos enviados en el cuerpo
+  Auth.PostController.editUser,
 );
-
 
 // Ruta protegida solo para administradores
 authRouter.post(
