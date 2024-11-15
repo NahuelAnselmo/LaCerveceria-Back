@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import mongoose from 'mongoose';
 import UserModel from './src/models/userSchema.js';
 

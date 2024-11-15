@@ -93,13 +93,10 @@ export class PostController {
         });
       }
   
-      console.log('🔒 Hasheando la contraseña...');
-      const hashedPassword = bcryptjs.hashSync(password, 10);
-  
       const newUser = new UserModel({
         username,
         email,
-        password: hashedPassword,
+        password,
       });
   
       console.log('📝 Guardando nuevo usuario...');
@@ -120,35 +117,45 @@ export class PostController {
       return internalError(res, error, 'Ocurrió un error al registrar el usuario');
     }
   }
-
-  // Cambiar contraseña
-  static async changePassword(req, res) {
-    const { email, newPassword } = req.body;
-
+  
+  static async editUser(req, res) {
+    const { username, email, password } = req.body;
+    const userId = req.params.id;
+  
     try {
-      const user = await UserModel.findOne({ email });
+      // Verificar si el usuario existe
+      const user = await UserModel.findById(userId);
       if (!user) {
         return res.status(HttpCodes.NOT_FOUND).json({
           data: null,
           message: 'Usuario no encontrado',
         });
       }
-
-      const hashedPassword = bcryptjs.hashSync(newPassword, 10);
-      user.password = hashedPassword;
-
+  
+      // Actualizar los campos del usuario
+      if (username) user.username = username;
+      if (email) user.email = email;
+  
+      // Asignar la nueva contraseña directamente, el middleware se encargará de hashearla
+      if (password) {
+        user.password = password; // Sin hashear, el middleware lo hará por ti
+      }
+  
+      // Guardar los cambios
       await user.save();
-
+  
       return res.status(HttpCodes.OK).json({
-        data: null,
-        message: 'Contraseña cambiada con éxito',
+        data: {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          isAdmin: user.isAdmin,
+        },
+        message: 'Usuario actualizado con éxito',
       });
     } catch (error) {
-      return internalError(
-        res,
-        error,
-        'Ocurrió un error al cambiar la contraseña',
-      );
+      console.error('Error al actualizar el usuario:', error);
+      return internalError(res, error, 'Ocurrió un error al actualizar el usuario');
     }
   }
-}
+}  
