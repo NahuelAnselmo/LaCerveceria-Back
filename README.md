@@ -1,8 +1,8 @@
-# Elixir-And-Bites
+# La Cerveceria
 
 ## Descripción
 
-**Elixir-And-Bites** es una aplicación diseñada para mejorar la experiencia en restaurantes. Permite a los clientes hacer pedidos directamente desde la aplicación al llegar al restaurante, eliminando la necesidad de esperar a ser atendidos por un mozo. Además, los usuarios pueden modificar o eliminar sus pedidos fácilmente, ofreciendo una experiencia más rápida y eficiente.
+**La Cerveceria** es una aplicación diseñada para mejorar la experiencia en restaurantes. Permite a los clientes hacer pedidos directamente desde la aplicación al llegar al restaurante, eliminando la necesidad de esperar a ser atendidos por un mozo. Además, los usuarios pueden modificar o eliminar sus pedidos fácilmente, ofreciendo una experiencia más rápida y eficiente.
 
 ## Características Principales
 
@@ -80,16 +80,3 @@ Actualmente, no hay un proceso de despliegue en producción configurado para est
 ## Licencia
 
 Este proyecto está bajo la Rolling Code License.
-
-## Contacto
-
-Desarrollado por Tobias Zarlenga y Nahuel Anselmo. Puedes encontrarnos en GitHub: [tobiaszarlenga](https://github.com/tobiaszarlenga) y [NahuelAnselmo](https://github.com/NahuelAnselmo)
-
-
-
-
-
-
-# Notas del Proyecto
-
-- Eliminé la rama `master` debido a malas configuraciones y creé la rama `main` como la rama principal.
