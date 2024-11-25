@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import express from 'express';
 import { Products } from '../../controllers/products/index.js';
 import { validateBody } from '../../middlewares/validateBody.js';
@@ -8,16 +9,22 @@ import {
 
 export const productsRouter = express.Router();
 
+// Obtener productos
 productsRouter.get('/', Products.GetController.getProducts);
+
+// Crear un nuevo producto con validaciones
 productsRouter.post(
   '/',
-  (req, res, next) =>
-    validateBody(req, res, next, post_productValidationSchema),
-  Products.PostController.postProduct,
+  validateBody(post_productValidationSchema), // Validación del cuerpo con el esquema POST
+  Products.PostController.postProduct
 );
+
+// Actualizar un producto existente con validaciones
 productsRouter.put(
   '/:id',
-  (req, res, next) => validateBody(req, res, next, put_productValidationSchema),
-  Products.PutController.putProduct,
+  validateBody(put_productValidationSchema), // Validación del cuerpo con el esquema PUT
+  Products.PutController.putProduct
 );
+
+// Eliminar un producto
 productsRouter.delete('/:id', Products.DeleteController.deleteProduct);
