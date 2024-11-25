@@ -1,3 +1,4 @@
+// routes/orderRoutes.js
 import express from 'express';
 import { Orders } from '../../controllers/cart/index.js';
 import { validateBody } from '../../middlewares/validateBody.js';
@@ -10,7 +11,7 @@ orderRouter.get('/', Orders.GetController.getOrders);
 
 // Ruta para crear un nuevo pedido
 orderRouter.post(
-  '/',
-  (req, res, next) => validateBody(req, res, next, post_orderValidationSchema),
-  Orders.PostController.createOrder,
+  '/', 
+  validateBody(post_orderValidationSchema), // Aquí el middleware se usa correctamente
+  Orders.PostController.createOrder
 );

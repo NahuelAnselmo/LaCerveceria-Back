@@ -17,10 +17,10 @@ export class PostController {
     });
 
     try {
-      await newProduct.save();
+      const savedProduct = await newProduct.save(); // Guarda el producto y obtén el objeto resultante
 
       res.status(HttpCodes.CREATED).json({
-        data: null,
+        data: savedProduct, // Incluye el producto creado en la respuesta
         message: 'Producto guardado correctamente',
       });
     } catch (e) {
