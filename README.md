@@ -83,7 +83,7 @@ Este proyecto está bajo la Rolling Code License.
 
 ## Contacto
 
-Desarrollado por Tobias Zarlenga y Nahuel Anselmo. Puedes encontrarnos en GitHub: [tobiaszarlenga](https://github.com/tobiaszarlenga) y [NahuelAnselmo](https://github.com/NahuelAnselmo)
+Desarrollado por Santiago Altamiranda, Nahuel Anselmo y Mario Arroyo. Puedes encontrarnos en GitHub: [Santiago Altamiranda](https://github.com/SantiagoAltamiranda) , [NahuelAnselmo](https://github.com/NahuelAnselmo) y [Mario Arroyo](https://github.com/Mariojar96)
 
 
 
