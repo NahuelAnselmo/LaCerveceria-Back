@@ -43,7 +43,6 @@ Sigue estos pasos para clonar e instalar el proyecto en tu máquina local:
    ```bash
    https://github.com/NahuelAnselmo/LaCerveceria-Back.git
 2. Instala las dependencias:
-   cd backend-elixir-98i-p3
    npm install
 
 ## Configuracion   
@@ -83,5 +82,6 @@ Este proyecto está bajo la Rolling Code License.
 
 ## Contacto
 
-Desarrollado por Santiago Altamiranda, Mario Arroyo y Nahuel Anselmo. Puedes encontrarnos en GitHub: [SantiagoAltamiranda](https://github.com/SantiagoAltamiranda), [NahuelAnselmo](https://github.com/NahuelAnselmo) y [MarioArroyo](https://github.com/MarioArroyo)
+
+Desarrollado por Santiago Altamiranda, Nahuel Anselmo y Mario Arroyo. Puedes encontrarnos en GitHub: [Santiago Altamiranda](https://github.com/SantiagoAltamiranda) , [NahuelAnselmo](https://github.com/NahuelAnselmo) y [Mario Arroyo](https://github.com/Mariojar96)
 
