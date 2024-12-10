@@ -1,8 +1,8 @@
-# La Cerveceria
+# Elixir-And-Bites
 
 ## Descripción
 
-**La Cerveceria** es una aplicación diseñada para mejorar la experiencia en restaurantes. Permite a los clientes hacer pedidos directamente desde la aplicación al llegar al restaurante, eliminando la necesidad de esperar a ser atendidos por un mozo. Además, los usuarios pueden modificar o eliminar sus pedidos fácilmente, ofreciendo una experiencia más rápida y eficiente.
+**Elixir-And-Bites** es una aplicación diseñada para mejorar la experiencia en restaurantes. Permite a los clientes hacer pedidos directamente desde la aplicación al llegar al restaurante, eliminando la necesidad de esperar a ser atendidos por un mozo. Además, los usuarios pueden modificar o eliminar sus pedidos fácilmente, ofreciendo una experiencia más rápida y eficiente.
 
 ## Características Principales
 
@@ -41,15 +41,16 @@ Sigue estos pasos para clonar e instalar el proyecto en tu máquina local:
 
 1. Clona el repositorio:
    ```bash
-   https://github.com/NahuelAnselmo/LaCerveceria-Back.git
+   git clone https://github.com/tobiaszarlenga/backend-elixir-98i-p3.git
 2. Instala las dependencias:
+   cd backend-elixir-98i-p3
    npm install
 
 ## Configuracion   
 Para que el backend funcione correctamente, crea un archivo '.env' en la raíz del proyecto con las siguientes variables de entorno
 - `PORT=3000`
-- `MONGODB_URI=mongodb+srv://lacerveceriatucu:vBCITTcqDOYGw0qP@cluster0.vvl6y.mongodb.net/?retryWrites=true&w=majority&`
-- `SECRET_KEY=tuClaveSecreta`
+- `MONGODB_URI=mongodb+srv://exilirandbite:iQkHWB1wQNP5mCRL@cluster0.r5zvmyw.mongodb.net/rolling-tb-p3?- - -    retryWrites=true&w=majority&appName=Cluster0`
+- `SECRET_KEY=tobi25`
 
 ## Uso
 Para iniciar el servidor en modo de desarrollo, usa el siguiente comando:
@@ -82,6 +83,13 @@ Este proyecto está bajo la Rolling Code License.
 
 ## Contacto
 
-
 Desarrollado por Santiago Altamiranda, Nahuel Anselmo y Mario Arroyo. Puedes encontrarnos en GitHub: [Santiago Altamiranda](https://github.com/SantiagoAltamiranda) , [NahuelAnselmo](https://github.com/NahuelAnselmo) y [Mario Arroyo](https://github.com/Mariojar96)
 
+
+
+
+
+
+# Notas del Proyecto
+
+- Eliminé la rama `master` debido a malas configuraciones y creé la rama `main` como la rama principal.

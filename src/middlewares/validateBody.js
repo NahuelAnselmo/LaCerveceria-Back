@@ -1,27 +1,17 @@
-/* eslint-disable prettier/prettier */
 import HttpCodes from 'http-status-codes';
-export const validateBody = (validationSchema) => (req, res, next) => {
+
+export const validateBody = (req, res, next, validationSchema) => {
   const { body } = req;
 
-  // Log para verificar los datos enviados
-  console.log("Datos recibidos en validateBody:", body);
-
-  if (!validationSchema) {
-    return res.status(HttpCodes.INTERNAL_SERVER_ERROR).json({
-      data: null,
-      message: 'Error interno: el esquema de validación es indefinido',
-    });
-  }
-
-  const { error } = validationSchema.validate(body, { abortEarly: false });
+  const { error } = validationSchema.validate(body);
 
   if (error) {
-    console.error("Errores de validación:", error.details);
-    return res.status(HttpCodes.BAD_REQUEST).json({
+    res.status(HttpCodes.BAD_REQUEST).json({
       data: null,
-      message: 'Ocurrió un error al validar los campos',
-      details: error.details.map((detail) => detail.message),
+      message:
+        error.details[0].message || 'Ocurrió un error al validar los campos',
     });
+    return;
   }
 
   next();

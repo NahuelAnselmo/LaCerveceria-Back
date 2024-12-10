@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const ProductSchema = new mongoose.Schema({
+const Product = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -10,7 +10,7 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: Number, // Cambiado a Number para representar valores monetarios
+    type: String,
     required: true,
   },
   description: {
@@ -26,15 +26,10 @@ const ProductSchema = new mongoose.Schema({
     required: true,
     enum: ['entrantes', 'burgers', 'tragos', 'bebidas', 'cervezas'],
   },
-  stock: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
   isActive: {
     type: Boolean,
     default: true,
   },
-}, { timestamps: true }); // Agrega timestamps automáticos
+});
 
-export default mongoose.model('Product', ProductSchema); // Nombre en singular
+export default mongoose.model('Products', Product);

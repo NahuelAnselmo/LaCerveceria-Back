@@ -10,17 +10,16 @@ export class PostController {
       name: body.name,
       imageUrl: body.imageUrl,
       price: body.price,
-      stock: body.stock,
       description: body.description,
       available: body.available,
       category: body.category,
     });
 
     try {
-      const savedProduct = await newProduct.save(); // Guarda el producto y obtén el objeto resultante
+      await newProduct.save();
 
       res.status(HttpCodes.CREATED).json({
-        data: savedProduct, // Incluye el producto creado en la respuesta
+        data: null,
         message: 'Producto guardado correctamente',
       });
     } catch (e) {
