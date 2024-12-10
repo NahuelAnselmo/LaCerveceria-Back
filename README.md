@@ -41,7 +41,7 @@ Sigue estos pasos para clonar e instalar el proyecto en tu máquina local:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tobiaszarlenga/backend-elixir-98i-p3.git
+   https://github.com/NahuelAnselmo/LaCerveceria-Back.git
 2. Instala las dependencias:
    cd backend-elixir-98i-p3
    npm install
