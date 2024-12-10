@@ -1,5 +1,5 @@
 {
-  "name": "elixir-and-bites-back",
+  "name": "la-cerveceria-back",
   "version": "1.0.0",
   "description": "Backend",
   "main": "./src/index.js",

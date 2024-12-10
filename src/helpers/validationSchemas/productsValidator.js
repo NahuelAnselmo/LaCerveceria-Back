@@ -11,22 +11,23 @@ export const post_productValidationSchema = Joi.object({
     'any.required': "El campo 'imageUrl' es requerido",
     '*': "Revisa el campo 'imageUrl'",
   }),
-  price: Joi.string()
-    .pattern(/^\d+(\.\d{2})?$/)
+  price: Joi.number()
+
+    .greater(0)
+    .less(1000000)
     .required()
-    .custom((value, helpers) => {
-      const numericValue = parseFloat(value);
-      if (numericValue < 0.01 || numericValue > 1000000) {
-        return helpers.message("El campo 'price' debe estar entre 0.01 y 1000");
-      }
-      return value;
-    })
     .messages({
-      'string.pattern.base':
-        "El campo 'price' debe ser un número con dos decimales",
+      'number.base': "El campo 'price' debe ser un número",
+      'number.greater': "El campo 'price' debe ser mayor que 0",
+      'number.less': "El campo 'price' debe ser menor que 1000000",
       'any.required': "El campo 'price' es requerido",
       '*': "Revisa el campo 'price'",
     }),
+  stock: Joi.number().integer().min(0).required().messages({
+    'number.min': "El campo 'stock' no puede ser negativo",
+    'any.required': "El campo 'stock' es requerido",
+    '*': "Revisa el campo 'stock'",
+  }),
   description: Joi.string().trim().min(3).max(500).required().messages({
     'string.min': "El campo 'description' debe tener como mínimo 3 caracteres",
     'string.max': "El campo 'description' debe tener como mucho 500 caracteres",
@@ -57,21 +58,22 @@ export const put_productValidationSchema = Joi.object({
     'string.uri': "El campo 'imageUrl' debe ser una URL valida",
     '*': "Revisa el campo 'imageUrl'",
   }),
-  price: Joi.string()
-    .pattern(/^\d+(\.\d{2})?$/)
+  price: Joi.number()
 
-    .custom((value, helpers) => {
-      const numericValue = parseFloat(value);
-      if (numericValue < 0.01 || numericValue > 1000000) {
-        return helpers.message("El campo 'price' debe estar entre 0.01 y 1000");
-      }
-      return value;
-    })
+    .greater(0)
+    .less(1000000)
+    .required()
     .messages({
-      'string.pattern.base':
-        "El campo 'price' debe ser un número con dos decimales",
+      'number.base': "El campo 'price' debe ser un número",
+      'number.greater': "El campo 'price' debe ser mayor que 0",
+      'number.less': "El campo 'price' debe ser menor que 1000000",
+      'any.required': "El campo 'price' es requerido",
       '*': "Revisa el campo 'price'",
     }),
+  stock: Joi.number().integer().min(0).messages({
+    'number.min': "El campo 'stock' no puede ser negativo",
+    '*': "Revisa el campo 'stock'",
+  }),
   description: Joi.string().trim().min(3).max(500).messages({
     'string.min': "El campo 'description' debe tener como mínimo 3 caracteres",
     'string.max': "El campo 'description' debe tener como mucho 500 caracteres",
@@ -92,9 +94,9 @@ export const put_productValidationSchema = Joi.object({
     'name',
     'imageUrl',
     'price',
+    'stock',
     'description',
     'available',
-
     'category',
   )
   .messages({
