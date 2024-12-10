@@ -49,8 +49,8 @@ Sigue estos pasos para clonar e instalar el proyecto en tu máquina local:
 ## Configuracion   
 Para que el backend funcione correctamente, crea un archivo '.env' en la raíz del proyecto con las siguientes variables de entorno
 - `PORT=3000`
-- `MONGODB_URI=mongodb+srv://exilirandbite:iQkHWB1wQNP5mCRL@cluster0.r5zvmyw.mongodb.net/rolling-tb-p3?- - -    retryWrites=true&w=majority&appName=Cluster0`
-- `SECRET_KEY=tobi25`
+- `MONGODB_URI=mongodb+srv://lacerveceriatucu:vBCITTcqDOYGw0qP@cluster0.vvl6y.mongodb.net/?retryWrites=true&w=majority&`
+- `SECRET_KEY=tuClaveSecreta`
 
 ## Uso
 Para iniciar el servidor en modo de desarrollo, usa el siguiente comando:
@@ -80,3 +80,8 @@ Actualmente, no hay un proceso de despliegue en producción configurado para est
 ## Licencia
 
 Este proyecto está bajo la Rolling Code License.
+
+## Contacto
+
+Desarrollado por Santiago Altamiranda, Mario Arroyo y Nahuel Anselmo. Puedes encontrarnos en GitHub: [SantiagoAltamiranda](https://github.com/SantiagoAltamiranda), [NahuelAnselmo](https://github.com/NahuelAnselmo) y [MarioArroyo](https://github.com/MarioArroyo)
+
